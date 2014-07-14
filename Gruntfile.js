@@ -65,6 +65,33 @@ module.exports = function(grunt) {
 
     },
 
+
+    'ftp-deploy': {
+      dist: {
+        auth: {
+          host: 'forsyth.dreamhost.com',
+          authKey: 'dreamhost'
+        },
+        src: '../<%= pkg.themeName %>',
+        dest: 'paulgueller.com/wp-content/themes/<%= pkg.themeName %>',
+        exclusions: [
+          '../<%= pkg.name %>/.sass-cache',
+          '../<%= pkg.name %>/bower_components',
+          '../<%= pkg.name %>/node_modules',
+          '../<%= pkg.name %>/scss',
+          '../<%= pkg.name %>/.bowerrc',
+          '../<%= pkg.name %>/.ftppass',
+          '../<%= pkg.name %>/.gitignore',
+          '../<%= pkg.name %>/.git',
+          '../<%= pkg.name %>/bower.json',
+          '../<%= pkg.name %>/Gruntfile.js',
+          '../<%= pkg.name %>/package.json',
+          '../<%= pkg.name %>/README.md',
+          '../<%= pkg.name %>/*.txt'
+        ]
+      }
+    },
+
     watch: {
       grunt: { files: ['Gruntfile.js'] },
 
@@ -75,7 +102,9 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['newer:sass:dist']);
-  grunt.registerTask('default', ['copy', 'uglify', 'concat', 'watch']);
+  grunt.registerTask('default', [ 'dev', 'watch']);
+  grunt.registerTask('build', ['copy', 'uglify', 'concat']);
+  grunt.registerTask('dev', ['build','sass:dev']);
+  grunt.registerTask('deploy', ['build', 'sass:dist', 'ftp-deploy:dist', 'sass:dev']);
 
 }
