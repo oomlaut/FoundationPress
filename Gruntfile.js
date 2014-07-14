@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         },
         files: {
           'css/app.css': 'scss/app.scss'
-        }        
+        }
       }
     },
 
@@ -65,13 +65,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('build', ['newer:sass']);
   grunt.registerTask('default', ['copy', 'uglify', 'concat', 'watch']);
 
 }
