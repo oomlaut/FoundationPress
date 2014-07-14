@@ -1,2 +1,13 @@
 .DS_Store
+
+# Do NOT EVER store FTP credentials in plain text
+.ftppass
+
+# temporary data used by SASS when building styles
+.sass-cache/
+
+# node modules should not be tracked in this repo
 node_modules/
+
+# nor should component libraries
+bower_components/

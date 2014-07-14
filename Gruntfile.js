@@ -1,14 +1,24 @@
 module.exports = function(grunt) {
+  require('load-grunt-tasks')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+        loadPath: ['bower_components/foundation/scss']
+      },
+      dev: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'css/app.css': 'scss/app.scss'
+        }
       },
       dist: {
         options: {
-          outputStyle: 'compressed'
+          style: 'compressed'
         },
         files: {
           'css/app.css': 'scss/app.scss'
@@ -65,7 +75,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['newer:sass']);
+  grunt.registerTask('build', ['newer:sass:dist']);
   grunt.registerTask('default', ['copy', 'uglify', 'concat', 'watch']);
 
 }
