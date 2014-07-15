@@ -11,3 +11,7 @@ node_modules/
 
 # nor should component libraries
 bower_components/
+
+# Do not store compiled assets
+js/*.min.js
+js/*/*

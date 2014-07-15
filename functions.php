@@ -1,12 +1,13 @@
 <?php
 /*
-Author: Ole Fredrik Lie
-URL: http://olefredrik.com
+Author: Paul Gueller
+URL: http://paulgueller.com
 */
 
+define("VERSION", '0.0.1');
 
 // Various clean up functions
-require_once('library/cleanup.php'); 
+require_once('library/cleanup.php');
 
 // Required for Foundation to work properly
 require_once('library/foundation.php');
@@ -25,6 +26,9 @@ require_once('library/entry-meta.php');
 
 // Enqueue scripts
 require_once('library/enqueue-scripts.php');
+
+// Enqueue styles
+require_once('library/enqueue-styles.php');
 
 // Add theme support
 require_once('library/theme-support.php');
