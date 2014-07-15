@@ -13,5 +13,7 @@ node_modules/
 bower_components/
 
 # Do not store compiled assets
-js/*.min.js
 js/*/*
+js/app.js
+js/*.min.js
+app.min.js

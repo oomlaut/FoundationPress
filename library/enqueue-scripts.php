@@ -9,7 +9,7 @@ if (!function_exists('FoundationPress_scripts')) :
     // register scripts
     // Local jQuery path : get_template_directory_uri() . '/js/jquery/dist/jquery.min.js'
     wp_register_script( 'jquery', '//code.jquery.com/jquery-2.1.1.min.js' );
-    wp_register_script( 'global', get_template_directory_uri() . '/js/app.min.js', array(), VERSION, false );
+    wp_register_script( 'global', get_template_directory_uri() . '/app.min.js', array(), VERSION, false );
 
     /*
     wp_register_script( 'modernizr', get_template_directory_uri() . '/js/modernizr/modernizr.min.js', array(), VERSION, false );

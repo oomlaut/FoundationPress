@@ -7783,7 +7783,6 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 	$(document).foundation();
 
 	// Application-specific behaviors start here
-	console.log('hello world!');
 
 })(jQuery);
 ;// Joyride demo

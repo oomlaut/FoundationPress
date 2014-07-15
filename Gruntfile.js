@@ -66,10 +66,11 @@ module.exports = function(grunt) {
           authKey: 'dreamhost'
         },
         src: '../<%= pkg.themeName %>',
-        dest: 'paulgueller.com/wp-content/themes/<%= pkg.themeName %>',
+        dest: 'paulgueller.com/wp-content/themes/testing',
         exclusions: [
           '../<%= pkg.themeName %>/.sass-cache',
           '../<%= pkg.themeName %>/bower_components',
+          '../<%= pkg.themeName %>/js',
           '../<%= pkg.themeName %>/node_modules',
           '../<%= pkg.themeName %>/scss',
           '../<%= pkg.themeName %>/.bowerrc',
@@ -83,6 +84,16 @@ module.exports = function(grunt) {
           '../<%= pkg.themeName %>/*.txt'
         ]
       }
+    },
+
+    // https://github.com/gruntjs/grunt-contrib-jshint
+    jshint: {
+      options: {
+        globals: {
+          'jQuery': true
+        }
+      },
+      beforeconcat: ['js/init-foundation.js', 'js/kitchen-sink.js']
     },
 
     // https://github.com/gruntjs/grunt-contrib-sass
@@ -128,13 +139,18 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'js/app.min.js': ['js/app.js']
+          'app.min.js': ['js/app.js']
         }
       }
     },
 
     watch: {
       grunt: { files: ['Gruntfile.js'] },
+
+      lint: {
+        files: ['<%= grunt.watch.scripts.files %>'],
+        tasks: ['jshint']
+      },
 
       scripts: {
         files: ['js/init-foundation.js', 'kitchen-sink.js'],
