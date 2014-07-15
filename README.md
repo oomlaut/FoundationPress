@@ -58,10 +58,12 @@ Check for Foundation Updates? Run:
 
 The configuration settings in _Gruntfile.js_ will control how assets are loaded, concatenated, minified, and deployed. Here are some things to be aware of:
 
-  * _default_             :
-  * _build
+  * _default_             : the parameterless command will get the environment up and running for local development and monitor for changes
+  * _build_               : prepares the JavaScript components of the solution, copying from bower, concatenating, and uglifying the specified files
+  * _dev_                 : _build_s the environment, and compiles the .scss files for local use
+  * _dist_                : _build_s the environment, and compiles the .scss files for production
+  * _deploy_              : _dist_s the environment, pushes to FTP server, and restores the compiled .scss to avoid conflicts
   * _sass.options.banner_ : generates the header as required and defined for WordPress [Theme Stylesheets](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet)
-  * _sass:dev_            : compiles styles for local development, expanded view of rules and annotations
 
 
 ## How to get started with Foundation

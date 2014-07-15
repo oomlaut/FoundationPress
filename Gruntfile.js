@@ -28,12 +28,11 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'js/modernizr/modernizr.js',
-          'js/fastclick/lib/fastclick.js',
-          'js/jquery.cookie/jquery.cookie.js',
-          'js/jquery.placeholder/jquery.placeholder.js',
+          //'js/fastclick/lib/fastclick.js',
+          //'js/jquery.cookie/jquery.cookie.js',
+          //'js/jquery.placeholder/jquery.placeholder.js',
           'js/foundation/js/foundation.js',
-          'js/init-foundation.js',
-          'js/kitchen-sink.js'
+          'js/init-foundation.js'
         ],
 
         dest: 'js/app.js',
@@ -148,7 +147,7 @@ module.exports = function(grunt) {
       grunt: { files: ['Gruntfile.js'] },
 
       lint: {
-        files: ['<%= grunt.watch.scripts.files %>'],
+        files: ['<%= watch.scripts.files %>'],
         tasks: ['jshint']
       },
 

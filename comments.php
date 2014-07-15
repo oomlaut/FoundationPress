@@ -10,13 +10,13 @@
 					<?php edit_comment_link(__('(Edit)', 'FoundationPress'), '', '') ?>
 				</div>
 			</header>
-			
+
 			<?php if ($comment->comment_approved == '0') : ?>
        			<div class="notice">
 					<p class="bottom"><?php _e('Your comment is awaiting moderation.', 'FoundationPress') ?></p>
           		</div>
 			<?php endif; ?>
-			
+
 			<section class="comment">
 				<?php comment_text() ?>
 				<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
@@ -46,7 +46,7 @@
 		<h3><?php comments_number(__('No Responses to', 'FoundationPress'), __('One Response to', 'FoundationPress'), __('% Responses to', 'FoundationPress') ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 		<ol class="commentlist">
 		<?php wp_list_comments('type=comment&callback=FoundationPress_comments'); ?>
-		
+
 		</ol>
 		<footer>
 			<nav id="comments-nav">
@@ -84,7 +84,7 @@
 			<label for="comment"><?php _e('Comment', 'FoundationPress'); ?></label>
 			<textarea name="comment" id="comment" tabindex="4"></textarea>
 		</p>
-		<p id="allowed_tags" class="small"><strong>XHTML:</strong> <?php _e('You can use these tags:','FoundationPress'); ?> <code><?php echo allowed_tags(); ?></code></p>
+		<p id="allowed_tags"><small><strong>XHTML:</strong> <?php _e('You can use these tags:','FoundationPress'); ?> <code><?php echo allowed_tags(); ?></code></small></p>
 		<p><input name="submit" class="button" type="submit" id="submit" tabindex="5" value="<?php esc_attr_e('Submit Comment', 'FoundationPress'); ?>"></p>
 		<?php comment_id_fields(); ?>
 		<?php do_action('comment_form', $post->ID); ?>
