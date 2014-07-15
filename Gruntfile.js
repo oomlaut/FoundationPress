@@ -66,7 +66,7 @@ module.exports = function(grunt) {
           authKey: 'dreamhost'
         },
         src: '../<%= pkg.themeName %>',
-        dest: 'paulgueller.com/wp-content/themes/testing',
+        dest: 'paulgueller.com/wp-content/themes/<%= pkg.themeName %>',
         exclusions: [
           '../<%= pkg.themeName %>/.sass-cache',
           '../<%= pkg.themeName %>/bower_components',
