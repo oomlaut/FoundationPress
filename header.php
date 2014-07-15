@@ -37,34 +37,48 @@
 
   <?php do_action('foundationPress_layout_start'); ?>
 
+  <?php
+  $mobile_menu = foundationPress_mobile_off_canvas();
+  ?>
+
   <nav class="tab-bar show-for-small-only">
+  <?php if(!empty($mobile_menu)): ?>
     <section class="left-small">
       <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
     </section>
+  <?php endif; ?>
     <section class="middle tab-bar-section">
-
       <h1 class="title"><?php bloginfo( 'name' ); ?></h1>
-
     </section>
   </nav>
 
+  <?php if(!empty($mobile_menu)): ?>
   <aside class="left-off-canvas-menu">
-    <?php foundationPress_mobile_off_canvas(); ?>
+    <?php echo $mobile_menu; ?>
   </aside>
+  <?php endif; ?>
 
-        <div class="top-bar-container contain-to-grid show-for-medium-up">
-            <nav class="top-bar" data-topbar="">
-                <ul class="title-area">
-                    <li class="name">
-                        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-                    </li>
-                </ul>
-                <section class="top-bar-section">
-                    <?php foundationPress_top_bar_l(); ?>
-                    <?php foundationPress_top_bar_r(); ?>
-                </section>
-            </nav>
-        </div>
+  <div class="top-bar-container contain-to-grid show-for-medium-up">
+      <nav class="top-bar" data-topbar="">
+          <ul class="title-area">
+              <li class="name">
+                  <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+              </li>
+          </ul>
+
+          <?php
+            $top_bar_l = foundationPress_top_bar_l();
+            $top_bar_r = foundationPress_top_bar_r();
+
+            if(!empty($top_bar_l) && !empty($top_bar_r)):
+          ?>
+          <section class="top-bar-section">
+              <?php echo $top_bar_l; ?>
+              <?php echo $top_bar_r; ?>
+          </section>
+        <?php endif; ?>
+      </nav>
+  </div>
 
 
 
