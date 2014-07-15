@@ -165,7 +165,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', [ 'dev', 'watch']);
-  grunt.registerTask('build', ['copy', 'uglify', 'concat']);
+  grunt.registerTask('build', ['copy', 'concat', 'uglify']);
   grunt.registerTask('dev', ['build','sass:dev']);
   grunt.registerTask('dist', ['build', 'sass:dist']);
   grunt.registerTask('deploy', ['dist', 'ftp-deploy:dist', 'sass:dev']);
